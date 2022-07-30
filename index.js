@@ -1,7 +1,7 @@
 //dependencies
 //const mysql = require("mysql2");
 const inquirer = require("inquirer");
-const Connection = require("mysql2/typings/mysql/lib/Connection");
+//const Connection = require("mysql2/typings/mysql/lib/Connection");
 require("console.table"); 
 const db= require('./connection')
 
@@ -53,7 +53,6 @@ const firstPrompt = () =>
 firstPrompt();
 
 
-//*at the end of each function, run first prompt again*
 //function to view employees
 function viewEmployees() 
 {
@@ -107,7 +106,7 @@ function viewDept()
 };
 
 //function to add an employee
-function addEmployee() 
+const addEmployee = () =>
 {
     return inquirer.prompt ([
         {
@@ -134,24 +133,13 @@ function addEmployee()
 
     .then(newEmployeeData =>
     {
-        let { first_name, last_name, roles_id, manager_id } = newEmployee;
-
-        //if (confirmAddManager === true) {
-            //let { first_name, last_name, roles_id, managerid } = newEmployee;
-
-            //return inquirer.prompt ([
-                //{
-                    //message: "Please input the new employee's manager ID.",
-                    //type: 'input',
-                    //name: 'manager_id'
-                //}
-            //]);
+        let { first_name, last_name, roles_id, manager_id } = newEmployeeData;
+        console.log(newEmployeeData);
 
         var query = 
-        `INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES 
-        ($first_name, $last_name, $roles_id, $manager_id;)`;
+        `INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES (newEmployeeData)`;
 
-        console.log(`${newEmployee} has been added!`);
+        console.log(`New employee has been added!`);
         firstPrompt();
     }); 
 };

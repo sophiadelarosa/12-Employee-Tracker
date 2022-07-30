@@ -5,26 +5,26 @@ USE employees_db;
 INSERT INTO departments
   (department_name)
 VALUES
-("Sales"),
-("IT"),
-("Adm");
+("Image and Sound"),
+("Marketing"),
+("Production");
   
 -- roles, with salary/dept --
 INSERT INTO roles
   (title, salary, departments_id)
 VALUES
-("sales manager",2000,1),
-("sales rep",1000,1),
-("head engineer",2000,2),
-("engineer",1000,2),
-("accountant",1000,3);
+("Senior Producer",2000,1),
+("Producer",1000,1),
+("Lead Editor",2000,2),
+("Editor",1000,2),
+("Assignment Coordinator",1000,3);
   
 -- employees --
 INSERT INTO employees
   (first_name, last_name, roles_id, manager_id)
 VALUES
-("Amy","Leader",1,NULL),
-("Emily","Brown",2,1),
-("Julie","Can",2,1),
-("David","Sheperd",3,NULL),
-("Bob","Harris",4,4);
+("Sophia","De La Rosa",1,NULL),
+("Wendy","Brown",2,1),
+("Alejandro","Valdez",2,1),
+("Bianca","Sheperd",3,NULL),
+("David","Harris",4,4);
